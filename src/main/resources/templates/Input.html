@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns: th="http://www.thymeleaf.org" th:replace="base::Layout(~{::section})"
+      xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+</head>
+<body>
+<section>
+    <link rel="stylesheet" th:href="@{/css/input.css}">
+    <div class="container">
+        <div th:if="${session.message}" th:classappend="${session.message.type}" class="alert alert-primary" role="alert">
+            <p class="text-center" th:text="${session.message.content}">Demo content </p>
+            <!--        <th:block th:text="${#session.removeAttribute('message')}"> </th:block>-->
+        </div>
+        <h2 class="green-heading">Sign-up</h2>
+        <form action="" th:action="@{/updatingDetails}" method="POST" th:object="${input}" enctype= "multipart/form-data">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="id">Id:</label>
+                <input type="number" id="id" name="id" required>
+            </div>
+            <div class="form-group">
+                <label for="position">position:</label>
+                <input type="text" id="position" name="position" required>
+            </div>
+            <div class="form-group">
+                <label for="contact">contact:</label>
+                <input type="number" id="contact" name="contact"></input>
+            </div>
+            <div class="form-group">
+                <label for="bloodGroup">bloodGroup:</label>
+                <input type="text" id="bloodGroup" name="bloodGroup"></input>
+            </div>
+            <div class="form-group">
+                <label for="image">photo:</label>
+                <input type="file" id="image" name="image" accept="image/*"></input>
+            </div>
+
+            <button type="submit">Register</button>
+            <button type="reset">Reset</button>
+        </form>
+    </div>
+</section>
+</body>
+</html>

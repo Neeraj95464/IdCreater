@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="${title}">Base</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ID Card Front</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Align items at the top */
+        }
+        .id-card {
+            width: 250px;
+            border: 1px solid #050404;
+            padding: 20px;
+            text-align: center; /* Align text to the center */
+            background:url(../images/bg.jpg);
+            background-color: rgba(202, 244, 219, 0.141);
+
+            background-size: cover; /* Adjust background image size */
+<!--            background-image: url(../images/bg.jpg); /* Add background image */-->
+
+            background-position: center; /* Center the background image */
+
+            position: relative;
+            display: flex;
+            flex-direction: column; /* Stack items vertically */
+            align-items: center; /* Center items horizontally */
+        }
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+        .details {
+            margin-bottom: 20px;
+            text-align: left;
+            width: 100%;
+        }
+        .signature {
+            position: absolute;
+            bottom: 10px;
+            right: 20px;
+            font-style: italic;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+
+<form id="searchForm" action="" th:action="@{/search}" method="POST">
+    <label for="userId">Enter User ID:</label>
+    <input type="text" id="userId" name="userId">
+    <button type="submit">Search</button>
+</form>
+
+<div class="id-card">
+    <img th:src="@{'../images/' + ${idNum} + '/wr.jpg'}" alt="Profile Picture" class="profile-pic">
+
+    <h2 th:text="${idHolderName}">NameOfIdHolder</h2>
+    <div class="details">
+        <p><strong>ID:</strong> <strong th:text="${idNumber}">12345</strong> </p>
+        <p><strong>Position:</strong> <strong th:text="${idPosition}">12345</strong> </p>
+        <p><strong>Contact:</strong> <strong th:text="${idContact}">12345</strong> </p>
+        <p><strong>BloodGroup:</strong> <strong th:text="${idBloodGroup}">12345</strong> </p>
+    </div>
+    <div class="signature">Authorized Sign</div>
+</div>
+
+</body>
+</html>

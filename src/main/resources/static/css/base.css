@@ -1,0 +1,17 @@
+body{
+background:#e2e2e2! important
+}
+.titleColor {
+    margin-left: auto;
+    color:red;
+}
+.bg-primary{
+color
+}
+.banner{
+background:Linear-gradient(rgba(0,0,0,.8),rgba(0,0,0,.8)),url(../images/homePhoto.jpg);
+width:100%;
+height:93vh;
+color:white;
+background-size:cover;
+}
